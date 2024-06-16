@@ -6,7 +6,7 @@ import { Layout } from "../../components/layout";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useNavigate } from "react-router-dom";
 
-export const Projects = () => {
+export const Portfolios = () => {
   const breadcrumbs = [{ label: "Projects", href: "/projects" }];
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState("ALL");
@@ -15,8 +15,8 @@ export const Projects = () => {
   const endIndex = startIndex + itemsPerPage;
 
   const navigate = useNavigate();
-  const navigateToProjectDetailPage = () => {
-    navigate("/projects/projects-details");
+  const navigateToPortfolioDetailsPage = () => {
+    navigate("/portfolios/portfolios-details");
   };
 
   const projects = [
@@ -120,7 +120,7 @@ export const Projects = () => {
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    setCurrentPage(1); // Reset to first page on category change
+    setCurrentPage(1);
   };
 
   const filteredProjects =
@@ -192,7 +192,7 @@ export const Projects = () => {
             {filteredProjects.slice(startIndex, endIndex).map((project) => (
               <CSSTransition key={project.id} timeout={500} classNames="fade">
                 <div className="flex flex-col transform transition-transform duration-500 ease-in-out hover:scale-105">
-                  <a onClick={navigateToProjectDetailPage}>
+                  <a onClick={navigateToPortfolioDetailsPage}>
                     <img
                       src={project.image}
                       alt={project.title}

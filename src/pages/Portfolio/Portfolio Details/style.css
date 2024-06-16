@@ -1,0 +1,12 @@
+.playicon{
+    font-size: 120px !important;
+    color: white;
+    z-index: 9;
+}
+@media (max-width:600px) {
+    .playicon{
+        font-size: 60px !important;
+        color: white;
+        z-index: 9;
+    }
+}

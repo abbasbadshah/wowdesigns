@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const navigate = useNavigate();
-  const navigateToAbout = () => {
-    navigate("/about");
+  const navigateToPortfolios = () => {
+    navigate("/portfolios");
   };
   const navigateToProjects = () => {
     navigate("/projects");
@@ -44,14 +44,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               </li>
               <li className="mb-2">
                 <a
-                  onClick={navigateToAbout}
-                  className="block px-3 py-2 rounded-md"
-                >
-                  ABOUT
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
                   onClick={navigateToProjects}
                   className="block px-3 py-2 rounded-md"
                 >
@@ -59,23 +51,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 </a>
               </li>
               <li className="mb-2">
-                <a href="/" className="block px-3 py-2 rounded-md">
+                <a
+                  className="block px-3 py-2 rounded-md"
+                  onClick={navigateToPortfolios}
+                >
                   PORTFOLIO
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="/" className="block px-3 py-2 rounded-md">
-                  SERVICES
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="/" className="block px-3 py-2 rounded-md">
-                  NEWS
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="/" className="block px-3 py-2 rounded-md">
-                  ENQUIRE
                 </a>
               </li>
             </ul>

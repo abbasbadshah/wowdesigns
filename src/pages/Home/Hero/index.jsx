@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 
 import img1 from "../../../assets/images/Home/Hero/image1.jpg";
 import img2 from "../../../assets/images/Home/Hero/image2.jpg";
-import img3 from "../../../assets/images/Home/Hero/image3.jpg";
+import img3 from "../../../assets/images/Home/Hero/image4.jpg";
+import img4 from "../../../assets/images/Home/Hero/image5.jpg";
+import img5 from "../../../assets/images/Home/Hero/image6.jpg";
 
 const HeroSlider = () => {
-  const images = [img1, img2, img3];
+  const images = [img1, img2, img3, img4, img5];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [nextImageIndex, setNextImageIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);

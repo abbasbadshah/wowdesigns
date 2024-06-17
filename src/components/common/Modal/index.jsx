@@ -3,7 +3,6 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-  Button,
   TextField,
   FormControl,
   InputLabel,
@@ -49,7 +48,7 @@ const LoginSignupModal = ({ open, onClose }) => {
       </div>
       <DialogContent>
         <div className="flex flex-col space-y-4">
-          <button className="grid grid-cols-4 border-[1px] border-gray-300 rounded-lg py-3 px-5">
+          {/*<button className="grid grid-cols-4 border-[1px] border-gray-300 rounded-lg py-3 px-5">
             <div className="col-span-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,12 +104,12 @@ const LoginSignupModal = ({ open, onClose }) => {
                 Google
               </p>
             </div>
-          </button>
-          <div className="flex items-center my-4">
+          </button> */}
+          {/*<div className="flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
             <span className="mx-4 text-gray-500">or</span>
             <div className="flex-grow border-t border-gray-300"></div>
-          </div>
+          </div> */}
           <form
             onSubmit={handleSubmit(
               isLogin ? handleLoginSubmit : handleSignupSubmit

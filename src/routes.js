@@ -1,5 +1,6 @@
 import { AboutPage } from "./pages/About";
 import { HomePage } from "./pages/Home";
+import { Login } from "./pages/Login";
 import { Portfolios } from "./pages/Portfolio";
 import { portfolioDetails } from "./pages/Portfolio/Portfolio Details";
 import { Projects } from "./pages/Projects";
@@ -34,6 +35,11 @@ export const routes = [
   {
     path: "/portfolios/portfolios-details",
     component: portfolioDetails,
+    exact: true,
+  },
+  {
+    path: "/login",
+    component: Login,
     exact: true,
   }
 ];

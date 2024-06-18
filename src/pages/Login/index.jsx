@@ -53,7 +53,7 @@ export const Login = () => {
             Welcome back!
           </p>
 
-          <a
+          {/*<a
             href="#"
             className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg hover:bg-gray-50"
           >
@@ -81,9 +81,9 @@ export const Login = () => {
             <span className="w-5/6 px-4 py-3 font-bold text-center">
               Sign in with Google
             </span>
-          </a>
+          </a> */}
 
-          <div className="flex items-center justify-between mt-4">
+          {/*<div className="flex items-center justify-between mt-4">
             <span className="w-1/5 border-b  lg:w-1/4"></span>
 
             <a
@@ -94,7 +94,8 @@ export const Login = () => {
             </a>
 
             <span className="w-1/5 border-b  lg:w-1/4"></span>
-          </div>
+          </div> */}
+          
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mt-4">
               <TextField

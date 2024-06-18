@@ -1,19 +1,24 @@
 import { Layout } from "../../../components/layout";
-import HeroProjectImage from "../../../assets/images/Projects/Project Details/image.webp";
+import HeroProjectImage from "../../../assets/images/Projects/Project Details/projectimage1.webp";
+import Image1 from "../../../assets/images/Projects/Project Details/projectimage1.webp";
+import Image2 from "../../../assets/images/Projects/Project Details/projectimage2.webp";
+import Image3 from "../../../assets/images/Projects/Project Details/projectimage3.webp";
+import Image4 from "../../../assets/images/Projects/Project Details/projectimage4.webp";
 import { PlayCircleOutline } from "@mui/icons-material";
 import "./style.css";
 
 export const projectDetails = () => {
+  const imageSources = [Image1, Image2, Image3, Image4];
   return (
     <Layout headerType={"header1"}>
-      <div className="relative w-full h-[75vh] overflow-hidden -mt-[4.5rem] lg:-mt-[5.70rem]">
+      <div className="relative w-full h-[75vh] overflow-hidden -mt-[4.5rem] lg:-mt-[7.2rem]">
         <img
           src={HeroProjectImage}
           alt="Project Hero"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/0 to-transparent"></div>
       </div>
       <div className="px-4 lg:px-16 py-8 ">
         <div className="py-4 lg:py-24 flex flex-col lg:grid lg:grid-cols-12 gap-10">
@@ -71,48 +76,37 @@ export const projectDetails = () => {
           }}
         >
           <PlayCircleOutline className="playicon" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b bg-black opacity-30 to-transparent"></div>
         </div>
-
+        {/* Gallery Image */}
         <div className="py-24 flex flex-col gap-4">
           <div className="relative w-full lg:h-[75vh] overflow-hidden">
             <img
-              src={HeroProjectImage}
-              alt="Project Hero"
+              src={imageSources[0]}
+              alt="Project Hero 1"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
           </div>
-          <div className="grid grid-flow-col gap-4">
-            <div className="relative w-full lg:h-[75vh] overflow-hidden">
-              <img
-                src={HeroProjectImage}
-                alt="Project Hero"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            </div>
-            <div className="relative w-full lg:h-[75vh] overflow-hidden">
-              <img
-                src={HeroProjectImage}
-                alt="Project Hero"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            </div>
+          <div className="grid grid-cols-2 gap-4">
+            {imageSources.slice(1, 3).map((image, index) => (
+              <div
+                key={index + 1}
+                className="relative w-full lg:h-[75vh] overflow-hidden"
+              >
+                <img
+                  src={image}
+                  alt={`Project Hero ${index + 2}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
           </div>
           <div className="relative w-full lg:h-[75vh] overflow-hidden">
             <img
-              src={HeroProjectImage}
-              alt="Project Hero"
+              src={imageSources[3]}
+              alt="Project Hero 4"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
           </div>
         </div>
       </div>

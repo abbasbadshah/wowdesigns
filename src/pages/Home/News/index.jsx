@@ -1,5 +1,6 @@
 import { ArrowRightAlt } from "@mui/icons-material";
 import newsImage1 from "../../../assets/images/Home/News/main4.webp";
+import newsImage2 from "../../../assets/images/Home/News/news.jpg";
 
 export const News = () => {
   return (
@@ -47,7 +48,7 @@ export const News = () => {
           </a>
         </div>
         <img
-          src={newsImage1}
+          src={newsImage2}
           className="w-full h-full object-cover basis-1/2"
           alt="newsimage"
         />

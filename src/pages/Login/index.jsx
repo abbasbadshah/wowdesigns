@@ -1,19 +1,43 @@
 import {
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  FormControlLabel,
-  Checkbox,
+  TextField
 } from "@mui/material";
 import { useForm } from "react-hook-form";
+import { WebsiteLogo } from "../../components/shared";
+import './style.css'
+import { useEffect, useState } from "react";
+
 
 export const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  const backgroundImages = [
+    "https://www.pexels.com/photo/crates-mounted-on-wall-1090638/",
+    "https://www.pexels.com/photo/interior-design-of-home-1643383/",
+    "https://www.pexels.com/photo/sofa-chairs-in-living-room-1648776/",
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((currentImageIndex + 1) % backgroundImages.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [currentImageIndex, backgroundImages.length]);
+
   const backgroundImage =
     "https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80";
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen"  style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}>
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl">
         <div
           className="hidden bg-cover lg:block lg:w-1/2"
@@ -22,11 +46,7 @@ export const Login = () => {
 
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
           <div className="flex justify-center mx-auto">
-            <img
-              className="w-auto h-7 sm:h-8"
-              src="https://merakiui.com/images/logo.svg"
-              alt=""
-            />
+            <WebsiteLogo width="150px"/>
           </div>
 
           <p className="mt-3 text-xl text-center text-gray-600">
@@ -75,31 +95,41 @@ export const Login = () => {
 
             <span className="w-1/5 border-b  lg:w-1/4"></span>
           </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mt-4">
+              <TextField
+                label="Email Address"
+                variant="outlined"
+                fullWidth
+                id="LoggingEmailAddress"
+                {...register("email", { required: "Email is required" })}
+                error={!!errors.email}
+                helperText={errors.email?.message}
+              />
+            </div>
 
-          <div className="mt-4">
-            <TextField
-              label="Email Address"
-              variant="outlined"
-              fullWidth
-              id="LoggingEmailAddress"
-            />
-          </div>
+            <div className="mt-4">
+              <TextField
+                label="Password"
+                type="password"
+                variant="outlined"
+                fullWidth
+                id="loggingPassword"
+                {...register("password", { required: "Password is required" })}
+                error={!!errors.password}
+                helperText={errors.password?.message}
+              />
+            </div>
 
-          <div className="mt-4">
-            <TextField
-              label="Password"
-              type="password"
-              variant="outlined"
-              fullWidth
-              id="loggingPassword"
-            />
-          </div>
-
-          <div className="mt-6">
-            <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
-              Sign In
-            </button>
-          </div>
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+              >
+                Sign In
+              </button>
+            </div>
+          </form>
 
           <div className="flex items-center justify-between mt-4">
             <span className="w-1/5 border-b  md:w-1/4"></span>

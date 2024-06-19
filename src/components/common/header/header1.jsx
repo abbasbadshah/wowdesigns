@@ -73,7 +73,7 @@ export const HeaderOne = () => {
                 : "border-white text-white hover:bg-white hover:text-black"
             }`}
           >
-            Sign in
+            Sign Up
           </button>
           <MenuIcon
             sx={{

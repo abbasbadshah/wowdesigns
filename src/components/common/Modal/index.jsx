@@ -15,7 +15,8 @@ import { useForm } from "react-hook-form";
 import { Close } from "@mui/icons-material";
 
 const LoginSignupModal = ({ open, onClose }) => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -31,12 +32,7 @@ const LoginSignupModal = ({ open, onClose }) => {
   };
 
   return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      maxWidth="xs"
-      fullWidth
-    >
+    <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
       <div className="flex justify-between items-center">
         <DialogTitle sx={{ fontSize: "24px", fontWeight: "500" }}>
           {isLogin ? "Login" : "Signup"}
@@ -149,7 +145,7 @@ const LoginSignupModal = ({ open, onClose }) => {
               <div className="text-gray-800">
                 Don't have an account?{" "}
                 <button
-                  onClick={() => setIsLogin(false)}
+                  onClick={() => setIsLogin(false)} // Switch to Signup form
                   className="text-black"
                 >
                   Join Wow Designs!
@@ -158,7 +154,10 @@ const LoginSignupModal = ({ open, onClose }) => {
             ) : (
               <div>
                 Already have an account?{" "}
-                <button onClick={() => setIsLogin(true)} className="text-black">
+                <button
+                  onClick={() => setIsLogin(true)} // Switch to Login form
+                  className="text-black"
+                >
                   Log In
                 </button>
               </div>

@@ -30,9 +30,7 @@ const ColorlibStepIcon = (props) => {
   return (
     <div
       className={`${
-        active
-          ? "bg-black shadow-lg"
-          : "bg-gray-300"
+        active ? "bg-black shadow-lg" : "bg-gray-300"
       } w-12 h-12 flex items-center justify-center rounded-full text-white ${className}`}
     >
       {icons[String(props.icon)]}
@@ -153,33 +151,45 @@ export default function CreateCompany() {
                       {activeStep === 1 && <Step2 />}
                       {activeStep === 2 && <Step3 />}
                       <Box className="flex flex-row justify-between mt-20 pt-10 border-t-[1px] border-gray-400">
-                        <button
-                          className="hover:bg-[#262626] bg-transparent rounded-lg border-2 border-black hover:shadow-lg hover:text-white text-[#262626] py-2 px-8 text-lg font-bold"
-                          disabled={activeStep === 0}
-                          onClick={handleBack}
-                        >
-                          Back
-                        </button>
-                        <div className="flex gap-5">
-                        {isStepOptional(activeStep) && (
+                        {activeStep === 0 ? (
                           <button
-                            className="bg-[#DC3545] hover:bg-transparent rounded-lg border-2 border-[#DC3545] hover:shadow-lg text-white hover:text-[#DC3545] py-2 px-8 text-lg font-bold"
-                            onClick={handleSkip}
+                            className="hidden hover:bg-[#262626] bg-transparent rounded-lg border-2 border-black hover:shadow-lg hover:text-white text-[#262626] py-2 px-8 text-lg font-bold"
+                            disabled={activeStep === 0}
+                            onClick={handleBack}
                           >
-                            Skip
+                            Back
+                          </button>
+                        ) : (
+                          <button
+                            className=" hover:bg-[#262626] bg-transparent rounded-lg border-2 border-black hover:shadow-lg hover:text-white text-[#262626] py-2 px-8 text-lg font-bold"
+                            disabled={activeStep === 0}
+                            onClick={handleBack}
+                          >
+                            Back
                           </button>
                         )}
-                        <button
-                          type="button"
-                          className="bg-[#262626] hover:bg-transparent rounded-lg border-2 border-black hover:shadow-lg text-white hover:text-[#262626] py-2 px-8 text-lg font-bold"
-                          onClick={
-                            activeStep === steps.length - 1
-                              ? handleSubmit(onSubmit)
-                              : handleNext
-                          }
-                        >
-                          {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                        </button>
+                        <div className="flex gap-5">
+                          {isStepOptional(activeStep) && (
+                            <button
+                              className="bg-[#DC3545] hover:bg-transparent rounded-lg border-2 border-[#DC3545] hover:shadow-lg text-white hover:text-[#DC3545] py-2 px-8 text-lg font-bold"
+                              onClick={handleSkip}
+                            >
+                              Skip
+                            </button>
+                          )}
+                          <button
+                            type="button"
+                            className="bg-[#262626] hover:bg-transparent rounded-lg border-2 border-black hover:shadow-lg text-white hover:text-[#262626] py-2 px-8 text-lg font-bold"
+                            onClick={
+                              activeStep === steps.length - 1
+                                ? handleSubmit(onSubmit)
+                                : handleNext
+                            }
+                          >
+                            {activeStep === steps.length - 1
+                              ? "Finish"
+                              : "Next"}
+                          </button>
                         </div>
                       </Box>
                     </form>

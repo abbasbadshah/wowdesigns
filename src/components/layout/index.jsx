@@ -15,9 +15,9 @@ export const Layout = ({ children, headerType }) => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       {renderHeader()}
-      <main>{children}</main>
+      <main className="flex-grow">{children}</main>
       <Footer />
     </div>
   );

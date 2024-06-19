@@ -1,4 +1,5 @@
 import { AboutPage } from "./pages/About";
+import CreateCompany from "./pages/Create Company";
 import { HomePage } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Portfolios } from "./pages/Portfolio";
@@ -40,6 +41,11 @@ export const routes = [
   {
     path: "/login",
     component: Login,
+    exact: true,
+  },
+  {
+    path: "/create-company",
+    component: CreateCompany,
     exact: true,
   }
 ];

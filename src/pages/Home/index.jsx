@@ -3,6 +3,7 @@ import HeroSlider from "./Hero";
 import Section from "../../components/common/section";
 import HomeMainSectionOne from "./Main";
 import { News } from "./News";
+import { FeatureProducts } from "./Feature Products";
 
 export const HomePage = () => {
   return (
@@ -10,6 +11,9 @@ export const HomePage = () => {
       <HeroSlider />
       <Section>
         <HomeMainSectionOne />
+      </Section>
+      <Section>
+        <FeatureProducts />
       </Section>
       <Section>
         <News />
